@@ -11,12 +11,12 @@ CORS(app)
 
 # --- Load the trained model ---
 try:
-    nb_model=GaussianNB()
     model = joblib.load("rf_model.joblib")
     print("✅ Model loaded successfully")
 except Exception as e:
     print("⚠️ Could not load model:", e)
     model = None
+nb_model=GaussianNB()
 
 # --- Feature extraction function ---
 def extract_features(url):
@@ -80,5 +80,5 @@ def predict():
 
 # --- RUN SERVER ---
 if __name__ == "__main__":
-     port = int(os.environ.get("PORT", 5000))
-    app.run(host="0.0.0.0", port=port)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port) 
