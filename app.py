@@ -35,8 +35,6 @@ def home():
 # --- API endpoint ---
 @app.route("/predict", methods=["POST"])
 def predict():
-    print("📩 Request received")
-
     data = request.get_json() or {}
     url = data.get("url", "")
 
